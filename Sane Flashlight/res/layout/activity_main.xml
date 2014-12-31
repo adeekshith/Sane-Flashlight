@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D3D3"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="in.deekshith.saneflashlight.MainActivity" >
+
+    <Button
+        android:id="@+id/toggle_flash_btn"
+        android:layout_width="match_parent"
+        android:keepScreenOn="true"
+        android:layout_height="165dp"
+        android:layout_weight="0.51"
+        android:textSize="50sp"
+        android:background="#1F1F21"
+        android:textColor="#BDBEC2"
+        android:text="ON/OFF" />
+</LinearLayout>
