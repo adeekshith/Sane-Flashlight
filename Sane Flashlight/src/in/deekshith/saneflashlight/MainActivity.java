@@ -53,29 +53,34 @@ public class MainActivity extends ActionBarActivity {
         
         // Hide Action bar
         getSupportActionBar().hide();
-        
-        boolean isCameraFlash = getApplicationContext().getPackageManager()
-                .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-
-        if (!isCameraFlash) {
-            showNoCameraAlert();
-        } else {
-        	getCamera();
+        try{
+        	boolean isCameraFlash = getApplicationContext().getPackageManager()
+        			.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+        	
+        	if (!isCameraFlash) {
+        		showNoCameraAlert();
+        	} else {
+        		getCamera();
+        	}
+        	
+        	// 	Turn ON the Flashlight initially
+        	setFlashlightOn();
+        	
+        	flashlightSwitchImg.setOnClickListener(new View.OnClickListener() {
+        		@Override
+        		public void onClick(View v) {
+        			if (isFlashlightOn) {
+        				setFlashlightOff();
+        			} else {
+        				setFlashlightOn();
+        			}
+        		}
+        	});
+        }catch(Exception e){
+        	flashlightSwitchImg.setBackgroundColor(0XFFFF0000);
+            flashlightSwitchImg.setText("Sorry, Unknown Error or Device not supported!");
+            flashBackground.setBackgroundColor(0XFFF7F7F7);
         }
-        
-        // Turn ON the Flashlight initially
-        setFlashlightOn();
-        
-        flashlightSwitchImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isFlashlightOn) {
-                    setFlashlightOff();
-                } else {
-                    setFlashlightOn();
-                }
-            }
-        });
     }
 	
 	private void getCamera(){
