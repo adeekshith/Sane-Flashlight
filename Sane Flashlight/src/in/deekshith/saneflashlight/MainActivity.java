@@ -149,8 +149,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         // on resume turn on the flash
-        if(isFlashlightOn)
-        	setFlashlightOn();
+        setFlashlightOn();
     }
     
     @Override
